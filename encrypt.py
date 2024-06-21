@@ -7,7 +7,7 @@ with open("secret.key", "wb") as file:
     file.write(key)
 
 fernet = Fernet(key)
-ACCESS_KEY = b"TccG2BrkmoayHRsGEE19MdK7yRjr7bZDWkXUxGm5Mc0"
+ACCESS_KEY = f"{value}"
 ENCRYPTED_KEY = fernet.encrypt(ACCESS_KEY)
 
 with open("key.txt", "wb") as file:
