@@ -3,13 +3,14 @@ import requests
 from requests.exceptions import ConnectionError, Timeout, HTTPError
 from cryptography.fernet import Fernet 
 import logging
+import os
 
+secret_key_path = os.getenv('SECRET_KEY')
 log_file = "wall.log"
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s %(name)s [%(levelname)s]: %(message)s',
-                    handlers=[
-                    logging.StreamHandler()
-                    ])
+                    filename='/home/rinojames007/MyFiles/script/wall.log'
+                    )
 logger = logging.getLogger("DailyWallpaper")
 
 class DailyWallpaper:
@@ -24,9 +25,10 @@ class DailyWallpaper:
     URL: str = "https://api.unsplash.com/search/photos"
 
     TOPICS: list[str] = [
-        "Nature", "Wallpapers", "Architecture", "Interiors",
-        "Travel", "Animals", "Architecture & interior",
-        "Relax"
+        "Nature", "Wallpapers", "Sunrise", "Sunset",
+        "Animals", "Landscape", "Mountains", "Majestic",
+        "Wild", "mother-nature", "water-reflection",
+        "Forest"
     ]
 
     HEADERS: dict[str, str] = {"Authorization": f"Client-ID {ACCESS_KEY}"}
